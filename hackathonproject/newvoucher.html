@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registration Form</title>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="stylesheet.css" rel="stylesheet">
+
+  </head>
+  <body>
+
+<div class="container">
+<div class="row">
+<!--   <div class="col-md-12">
+    <small><i></i>Add alerts if form ok... success, else error.</i></small>
+  <div class="alert alert-success"><strong><span class="glyphicon glyphicon-send"></span> Success! Message sent. (If form ok!)</strong></div>   
+    <div class="alert alert-danger"><span class="glyphicon glyphicon-alert"></span><strong> Error! Please check the inputs. (If form error!)</strong></div>
+  </div> -->
+  <form role="form" action="" method="post" >
+    <div class="col-lg-6">
+     <!--  <div class="well well-sm"><strong><i class="glyphicon glyphicon-ok form-control-feedback"></i> Required Field</strong></div> -->
+      <div class="form-group">
+        <label for="InputVoucher">Voucher Title</label>
+        <div class="input-group">
+          <input type="text" class="form-control" name="InputVoucher" id="InputVoucher" placeholder="Enter Vouche Title" required>
+          <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+      </div>
+      <div class="form-group">
+        <label for="InputQ">Quantity</label>
+        <div class="input-group">
+          <input type="number" class="form-control" id="InputQ" name="InputQ" placeholder="Enter Voucher Quantity" required  >
+          <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+      </div>
+      
+      <div class="form-group">
+        <label for="InputED">End Date</label>
+        <div class="input-group">
+        	
+          <input type="datetime" class="form-control" id="InputD" name="InputD" placeholder="Enter End Date" required  >
+          <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+      </div>
+      <div class="form-group">
+        <label for="InputD">Description</label>
+        <div class="input-group">
+        	<textarea  type="text" class="form-control" id="InputD" name="InputD" placeholder="Enter Description" required>
+            </textarea>
+        		
+          <!--<input type="text" class="form-control" id="InputD" name="InputD" placeholder="Enter Description" required  >
+          --><span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+      </div>
+      
+      <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-info pull-right">
+    </div>
+  </form>
+
+</div>
+
+</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
+
+  
+    <script type="text/javascript">
+      
+    Parse.initialize("yCot7DiqPN7MLHrmceO3kR5C8FzxPFLqynLBgc4A", "ffJ4m7XXPcVpQAJL3Jw212KbNn06Lp098Fl468Tx");
+
+     var vTitle   = document.getElementById("InputVoucher");
+     var vQuantity  = document.getElementById("InputQ");
+     var vEnddate = document.getElementById("InputED");
+     var vDescription = document.getElementById("InputD);
+
+
+      var Vouchers = Parse.Object.extend("Vouchers");
+      var voucher = new Vouchers();
+
+    $("#submit").click(function(){
+    	alert("wwe");
+
+          voucher.set("vTitle", vTitle.value); 
+          voucher.set("vQuantity", vQuantity.value);
+          voucher.set("vEnddate", vEnddate.value);
+          voucher.set("vDescription", vDescription.value);
+          voucher.save();
+       // {  
+           // success: function(object) {
+             // $(".success").show();
+           // },
+           // error: function(model, error) {
+             // $(".error").show();
+           // }
+        // });
+}); 
+  </script>
+
+  </body>
+</html>
