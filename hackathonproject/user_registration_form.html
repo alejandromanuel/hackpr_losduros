@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registration Form</title>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="stylesheet.css" rel="stylesheet">
+
+  </head>
+  <body>
+
+<div class="container">
+<div class="row">
+<!--   <div class="col-md-12">
+    <small><i></i>Add alerts if form ok... success, else error.</i></small>
+  <div class="alert alert-success"><strong><span class="glyphicon glyphicon-send"></span> Success! Message sent. (If form ok!)</strong></div>   
+    <div class="alert alert-danger"><span class="glyphicon glyphicon-alert"></span><strong> Error! Please check the inputs. (If form error!)</strong></div>
+  </div> -->
+  <form role="form" action="" method="post" >
+    <div class="col-lg-6">
+     <!--  <div class="well well-sm"><strong><i class="glyphicon glyphicon-ok form-control-feedback"></i> Required Field</strong></div> -->
+      <div class="form-group">
+        <label for="InputName">Your Name</label>
+        <div class="input-group">
+          <input type="text" class="form-control" name="InputName" id="InputName" placeholder="Enter Name" required>
+          <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+      </div>
+      <div class="form-group">
+        <label for="InputEmail">Your Email</label>
+        <div class="input-group">
+          <input type="email" class="form-control" id="InputEmail" name="InputEmail" placeholder="Enter Email" required  >
+          <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+      </div>
+
+      <div class="form-group">
+        <label for="InputPhone">Your phone number</label>
+        <div class="input-group">
+          <input type="phone" class="form-control" id="InputPhone" name="InputPhone" placeholder="Enter Phone Number" required  >
+          <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+      </div>
+      
+      <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-info pull-right">
+    </div>
+  </form>
+
+</div>
+
+</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
+
+  
+    <script type="text/javascript">
+      
+    Parse.initialize("yCot7DiqPN7MLHrmceO3kR5C8FzxPFLqynLBgc4A", "ffJ4m7XXPcVpQAJL3Jw212KbNn06Lp098Fl468Tx");
+
+     var name   = document.getElementById("InputName");
+     var email  = document.getElementById("InputEmail");
+     var phone  = document.getElementById("InputPhone");
+
+
+;    var Users = Parse.Object.extend("Users");
+      var users = new Users();
+
+    $("#submit").click(function(){
+
+          users.set("InputName", InputName.value); 
+          users.set("Phone", InputPhone.value);
+          users.set("Email", InputEmail.value)
+          users.save();
+      // {  
+      //     success: function(object) {
+      //       $(".success").show();
+      //     },
+      //     error: function(model, error) {
+      //       $(".error").show();
+      //     }
+      //  });
+}); 
+  </script>
+
+  </body>
+</html>
