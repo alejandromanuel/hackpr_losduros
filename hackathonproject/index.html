@@ -104,15 +104,16 @@
         <div id="columns">
           <div class="pin">
             <img src="http://cssdeck.com/uploads/media/items/2/2v3VhAp.png" />
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-              Sed feugiat consectetur pellentesque. Nam ac elit risus, 
-              ac blandit dui. Duis rutrum porta tortor ut convallis.
-              Duis rutrum porta tortor ut convallis.
-            </p>
+              <div><h2>$25</h2></div>
+              <div>
+                <p class="titulo">
+                 Coco, Parcha y Piña
+                </p>
+            </div>
+            <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
           </div>
         
-          <div class="pin">
+        <!--   <div class="pin">
             <img src="http://cssdeck.com/uploads/media/items/1/1swi3Qy.png" />
             <p>
               Donec a fermentum nisi. 
@@ -232,12 +233,41 @@
               Sed feugiat consectetur pellentesque. Nam ac elit risus, 
               ac blandit dui. Duis rutrum porta tortor ut convallis.
             </p>
-          </div>
+          </div> -->
         </div>
       </div>
   <!-- end Tile -->
+   <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
     <script src="bootstrap/js/bootstrap.min.js"></script>
+      <script type="text/javascript">
+      
+    Parse.initialize("yCot7DiqPN7MLHrmceO3kR5C8FzxPFLqynLBgc4A", "ffJ4m7XXPcVpQAJL3Jw212KbNn06Lp098Fl468Tx");
+
+     var name   = document.getElementById("InputName");
+     var email  = document.getElementById("InputEmail");
+     var phone  = document.getElementById("InputPhone");
+
+
+;    var Users = Parse.Object.extend("Users");
+      var users = new Users();
+
+    $("#submit").click(function(){
+
+          users.set("InputName", InputName.value); 
+          users.set("Phone", InputPhone.value);
+          users.set("Email", InputEmail.value)
+          users.save();
+      // {  
+      //     success: function(object) {
+      //       $(".success").show();
+      //     },
+      //     error: function(model, error) {
+      //       $(".error").show();
+      //     }
+      //  });
+}); 
+  </script>
   </body>
 </html>
