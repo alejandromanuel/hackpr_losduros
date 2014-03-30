@@ -77,6 +77,14 @@
       var Vouchers = Parse.Object.extend("Vouchers");
       var vouchers = new Vouchers();
 
+      
+      var query = new Parse.Query("Vouchers");
+      var voucher_ID;
+      var Codes= Parse.Object.extend("Codes");
+      var codes = new Codes();
+      
+
+
     $("#submit").click(function(){
 
           vouchers.set("voucherTitle", InputVoucher.value); 
@@ -84,6 +92,17 @@
           vouchers.set("voucherEnddate", InputEndDate.value);
           vouchers.set("voucherDescription", InputDescription.value);
           vouchers.save();
+
+           query.descending("createAt"); 
+           query.limit(1);
+           query.find({
+           success: function(voucher_ID) {
+           alert(voucher_ID);
+           // codes.set("voucherCode",voucher_ID[0].id); 
+           // codes.save();
+           }});
+           
+ 
        // {  
            // success: function(object) {
              // $(".success").show();
