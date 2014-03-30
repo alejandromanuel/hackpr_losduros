@@ -23,16 +23,24 @@
   <form role="form" action="" method="post" >
     <div class="col-lg-6">
      <!--  <div class="well well-sm"><strong><i class="glyphicon glyphicon-ok form-control-feedback"></i> Required Field</strong></div> -->
-      <div class="form-group">
+       <div class="form-group">
         <label for="InputVoucher">Voucher Title</label>
         <div class="input-group">
           <input type="text" class="form-control" name="InputVoucher" id="InputVoucher" placeholder="Enter Vouche Title" required>
           <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
       </div>
-      <div class="form-group">
+
+        <div class="form-group">
         <label for="InputQuantity">Quantity</label>
         <div class="input-group">
           <input type="number" class="form-control" id="InputQuantity" name="InputQuantity" placeholder="Enter Voucher Quantity" required  >
+          <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+      </div>
+
+            <div class="form-group">
+        <label for="InputPrice">Price</label>
+        <div class="input-group">
+          <input type="number" class="form-control" id="InputPrice" name="InputPrice" placeholder="Enter Voucher Price" required  >
           <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
       </div>
       
@@ -43,13 +51,12 @@
           <input type="datetime" class="form-control" id="InputEndDate" name="InputEndDate" placeholder="Enter End Date" required  >
           <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
       </div>
+
       <div class="form-group">
         <label for="InputDescription">Description</label>
         <div class="input-group">
         	<input  type="text" class="form-control" id="InputDescription" name="InputDescription" placeholder="Enter Description" required>
-                    		
-          <!--<input type="text" class="form-control" id="InputD" name="InputD" placeholder="Enter Description" required  >
-          --><span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
+            <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
       </div>
       
       <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-info pull-right">
@@ -62,54 +69,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
-
-  
-    <script type="text/javascript">
-      
-  Parse.initialize("yCot7DiqPN7MLHrmceO3kR5C8FzxPFLqynLBgc4A", "ffJ4m7XXPcVpQAJL3Jw212KbNn06Lp098Fl468Tx")
-
-     var title         = document.getElementById("InputVoucher");
-     var quantity      = document.getElementById("InputQuantity");
-     var enddate       = document.getElementById("InputEndDate");
-     var description   = document.getElementById("InputDescription");
-     var voucher_ID;
-
-      var Vouchers = Parse.Object.extend("Vouchers");
-      var vouchers = new Vouchers();      
-      var query = new Parse.Query("Vouchers");
-      var Codes = Parse.Object.extend("Codes");
-      var codes = new Codes();
-      
-
-
-    $("#submit").click(function(){
-
-          vouchers.set("voucherTitle", InputVoucher.value); 
-          vouchers.set("voucherQuantity", InputQuantity.value);
-          vouchers.set("voucherEnddate", InputEndDate.value);
-          vouchers.set("voucherDescription", InputDescription.value);
-          vouchers.save();
-
-           query.descending("createAt"); 
-           query.limit(1);
-           query.get({
-           success: function(voucher_ID) {
-           alert(voucher_ID);
-           codes.set("voucherCode",voucher_ID[0].id); 
-           codes.save();
-           }});
-           
- 
-       // {  
-           // success: function(object) {
-             // $(".success").show();
-           // },
-           // error: function(model, error) {
-             // $(".error").show();
-           // }
-        // });
-}); 
-  </script>
+    <script type="text/javascript" src="js/voucher_registration_script.js"></script>
 
   </body>
 </html>

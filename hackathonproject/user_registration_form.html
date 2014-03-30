@@ -8,7 +8,7 @@
 
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="stylesheet.css" rel="stylesheet">
+    
 
   </head>
   <body>
@@ -53,36 +53,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.18.min.js"></script>
-
-  
-    <script type="text/javascript">
-      
-    Parse.initialize("yCot7DiqPN7MLHrmceO3kR5C8FzxPFLqynLBgc4A", "ffJ4m7XXPcVpQAJL3Jw212KbNn06Lp098Fl468Tx");
-
-     var name   = document.getElementById("InputName");
-     var email  = document.getElementById("InputEmail");
-     var phone  = document.getElementById("InputPhone");
-
-
-    var Users = Parse.Object.extend("Users");
-      var users = new Users();
-
-    $("#submit").click(function(){
-
-          users.set("InputName", InputName.value); 
-          users.set("Phone", InputPhone.value);
-          users.set("Email", InputEmail.value)
-          users.save();
-      // {  
-      //     success: function(object) {
-      //       $(".success").show();
-      //     },
-      //     error: function(model, error) {
-      //       $(".error").show();
-      //     }
-      //  });
-}); 
-  </script>
+    <script type="text/javascript" src="js/user_registration_script.js"></script>
 
   </body>
 </html>
