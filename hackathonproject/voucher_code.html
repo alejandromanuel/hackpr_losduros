@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>View Cupon</title>
+    <title>Get Code</title>
 
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -29,20 +29,17 @@
 
 <div class="container">
     <div class="jumbotron text-center">
-      <h1>Title</h1>
-      <p class="lead voucherTitle"> </p>
+      
+      
       <!-- cupon image -->
       <div class="row">
           <div class="col-md-8">
-          <img  src="http://lorempixel.com/400/400">
           </div> 
         <div class="container col-md-4">
-          <div class="companyID"></div> 
-          <div class="voucherPrice"></div>
-          <div class="region"></div>
-          <div class="timeleft"></div>
-          <div class="voucherDescription"></div>
-            <button type="button" class="btn btn-primary btn-lg" onclick="window.location='voucher_code.html';">Get Voucher</button>
+        	<div class="qr"></div> 
+          <div class="code"></div> 
+          
+            
         </div>
      </div>
    </div>
@@ -77,20 +74,21 @@
        $(document).ready(function(){  
     Parse.initialize("yCot7DiqPN7MLHrmceO3kR5C8FzxPFLqynLBgc4A", "ffJ4m7XXPcVpQAJL3Jw212KbNn06Lp098Fl468Tx");
 
-    var Vouchers = Parse.Object.extend("Vouchers");
-    var query = new Parse.Query(Vouchers);
+    var Codes = Parse.Object.extend("Codes");
+    var query = new Parse.Query(Codes);
     
-    // console.log(id);
+    console.log(parseInt(localStorage.getItem("ID")));
     query.equalTo("voucherId", parseInt(localStorage.getItem("ID")))  ;
 
     query.find({
       success: function(object){
         // console.log(object.length) ;
-        $(".companyID").append(object[0].get("companyID"));
-        $(".voucherPrice").append(object[0].get("voucherPrice"));
-        $(".region").append(object[0].get("region"));
-        $(".voucherDescription").append(object[0].get("voucherDescription"));
-        $(".voucherTitle").append(object[0].get("voucherTitle"));
+        console.log(object.length);
+        $(".qr").append("<img src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="+object[0].id+"'>");
+        $(".code").append(object[0].id);
+        
+          
+        
       },          
         error: function(error) {
                 console.log("An error occured :(");
