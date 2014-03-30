@@ -79,11 +79,13 @@
     var idd;
     
     query.equalTo("voucherId", parseInt(localStorage.getItem("ID")))  ;
+    query.equalTo("used", false)  ;
+   
     query.limit(1);
     query.find({
       success: function(object){
         // console.log(object.length) ;
-        console.log(object.length);
+       
         $(".qr").append("<img src='https://api.qrserver.com/v1/create-qr-code/?size=150x150&data="+object[0].id+"'>");
         $(".code").append(object[0].id);
         // object[0].set("used",true);
