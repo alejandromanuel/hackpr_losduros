@@ -65,13 +65,13 @@
 
 
     var Users = Parse.Object.extend("Users");
-      var users = new Users();
+    var users = new Users();
 
     $("#submit").click(function(){
 
-          users.set("InputName", InputName.value); 
+          users.set("Name", InputName.value); 
           users.set("Phone", InputPhone.value);
-          users.set("Email", InputEmail.value)
+          users.set("Email", InputEmail.value);
           users.save();
       // {  
       //     success: function(object) {

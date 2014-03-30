@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Registration Form</title>
+    <title>Voucher Registration Form</title>
 
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -30,25 +30,24 @@
           <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
       </div>
       <div class="form-group">
-        <label for="InputQ">Quantity</label>
+        <label for="InputQuantity">Quantity</label>
         <div class="input-group">
-          <input type="number" class="form-control" id="InputQ" name="InputQ" placeholder="Enter Voucher Quantity" required  >
+          <input type="number" class="form-control" id="InputQuantity" name="InputQuantity" placeholder="Enter Voucher Quantity" required  >
           <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
       </div>
       
       <div class="form-group">
-        <label for="InputED">End Date</label>
+        <label for="InputEndDate">End Date</label>
         <div class="input-group">
         	
-          <input type="datetime" class="form-control" id="InputD" name="InputD" placeholder="Enter End Date" required  >
+          <input type="datetime" class="form-control" id="InputEndDate" name="InputEndDate" placeholder="Enter End Date" required  >
           <span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
       </div>
       <div class="form-group">
-        <label for="InputD">Description</label>
+        <label for="InputDescription">Description</label>
         <div class="input-group">
-        	<textarea  type="text" class="form-control" id="InputD" name="InputD" placeholder="Enter Description" required>
-            </textarea>
-        		
+        	<input  type="text" class="form-control" id="InputDescription" name="InputDescription" placeholder="Enter Description" required>
+                    		
           <!--<input type="text" class="form-control" id="InputD" name="InputD" placeholder="Enter Description" required  >
           --><span class="input-group-addon"><i class="glyphicon glyphicon-ok form-control-feedback"></i></span></div>
       </div>
@@ -67,25 +66,24 @@
   
     <script type="text/javascript">
       
-    Parse.initialize("yCot7DiqPN7MLHrmceO3kR5C8FzxPFLqynLBgc4A", "ffJ4m7XXPcVpQAJL3Jw212KbNn06Lp098Fl468Tx");
+  Parse.initialize("yCot7DiqPN7MLHrmceO3kR5C8FzxPFLqynLBgc4A", "ffJ4m7XXPcVpQAJL3Jw212KbNn06Lp098Fl468Tx")
 
-     var vTitle   = document.getElementById("InputVoucher");
-     var vQuantity  = document.getElementById("InputQ");
-     var vEnddate = document.getElementById("InputED");
-     var vDescription = document.getElementById("InputD);
+     var title         = document.getElementById("InputVoucher");
+     var quantity      = document.getElementById("InputQuantity");
+     var enddate       = document.getElementById("InputEndDate");
+     var description   = document.getElementById("InputDescription");
 
 
       var Vouchers = Parse.Object.extend("Vouchers");
-      var voucher = new Vouchers();
+      var vouchers = new Vouchers();
 
     $("#submit").click(function(){
-    	alert("wwe");
 
-          voucher.set("vTitle", vTitle.value); 
-          voucher.set("vQuantity", vQuantity.value);
-          voucher.set("vEnddate", vEnddate.value);
-          voucher.set("vDescription", vDescription.value);
-          voucher.save();
+          vouchers.set("voucherTitle", InputVoucher.value); 
+          vouchers.set("voucherQuantity", InputQuantity.value);
+          vouchers.set("voucherEnddate", InputEndDate.value);
+          vouchers.set("voucherDescription", InputDescription.value);
+          vouchers.save();
        // {  
            // success: function(object) {
              // $(".success").show();
