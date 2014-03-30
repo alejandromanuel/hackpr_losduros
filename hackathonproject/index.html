@@ -111,8 +111,7 @@
                 <p class="title1">
                 </p>
             </div>
-            <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
-          </div>
+            <!--<button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>--></div>
         
           <div class="pin">
             <img class="image" src="http://cssdeck.com/uploads/media/items/6/6f3nXse.png" />
@@ -141,7 +140,7 @@
                 <p class="title4">
                 </p>
             </div>
-            <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+            <button type="button" class="btn btn-primary btn-lg btn-block" onclick="storeInfo()">Block level button</button>
           </div>
           
           <div class="pin">
@@ -172,7 +171,10 @@
         success: function(object) {
           $(".title1").append(object.get("voucherTitle"));
           $(".price1").append(object.get("voucherPrice"));
-
+         // console.log(object.get("voucherID"));
+        
+        
+          $(".price1").append("<button type='button' class='btn btn-primary btn-lg btn-block' onClick='storeID(" +object.get("voucherId")+ ")'>Block level button</button>");  
         },            
         error: function(error) {
                 console.log("An error occured :(");
@@ -223,7 +225,14 @@
 
       });
       
-
+function storeID(index){
+	console.log(index);
+	localStorage.setItem("ID",index);
+	window.location="view_voucher.html";
+	
+	
+	
+}
   </script>
   </body>
 </html>
