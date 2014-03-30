@@ -79,7 +79,7 @@
     var idd;
     
     query.equalTo("voucherId", parseInt(localStorage.getItem("ID")))  ;
-    query.equalTo("used", false)  ;
+    query.equalTo("taken", false)  ;
    
     query.limit(1);
     query.find({
@@ -100,7 +100,7 @@
       query.first({
       success: function(object) {
 
-     object.set("used", true);
+     object.set("taken", true);
      object.save();
 
 
