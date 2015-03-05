@@ -59,13 +59,7 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
 
     <script type="text/javascript">
-       $(document).ready(function(){  
-    Parse.initialize("yCot7DiqPN7MLHrmceO3kR5C8FzxPFLqynLBgc4A", "ffJ4m7XXPcVpQAJL3Jw212KbNn06Lp098Fl468Tx");
 
-    var Codes = Parse.Object.extend("Codes");
-    var query = new Parse.Query(Codes);
-    var idd;
-    
     query.equalTo("voucherId", parseInt(localStorage.getItem("ID")))  ;
     query.equalTo("taken", false)  ;
    
