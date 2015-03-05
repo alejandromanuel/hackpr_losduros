@@ -11,7 +11,7 @@ body {
 
 #columns {
 	-webkit-column-count: 3;
-	-webkit-column-gap: 10px;
+	-webkit-coumn-gap: 10px;
 	-webkit-column-fill: auto;
 	-moz-column-count: 3;
 	-moz-column-gap: 10px;
